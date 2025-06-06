@@ -1,0 +1,612 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black; /* Black background for cinematic effect */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Oswald', sans-serif;
+    transition: background-color 1.5s ease, border-radius 0.5s ease;
+}
+
+.navbar .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1); /* Hover effect */
+}
+
+.navbar .team-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.navbar .team-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease, transform-origin 0s 0.3s;
+}
+
+.navbar .team-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar .team-name:not(:hover)::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease, transform-origin 0s;
+}
+
+.navbar .nav-links {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.navbar .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 10px 0;
+}
+
+.navbar .nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::before {
+    transform: translateY(-100%);
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::after {
+    transform: translateY(100%);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 30px;
+    max-width: 800px;
+    margin: 100px auto 20px;
+    background: linear-gradient(135deg, #111, #222); /* Gradient for depth */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.5); /* Red shadow for 3D effect */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for 3D effect */
+}
+
+.contact-section:focus-within {
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.8); /* Stronger shadow when focused */
+}
+
+.contact-section h1 {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    text-shadow: 0 4px 8px rgba(255, 0, 0, 0.8); /* Red glow effect */
+    margin-bottom: 20px;
+}
+
+.phone-numbers {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.phone-numbers li {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for readability */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #e74c3c;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: #000;
+    color: #fff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8), /* Inner shadow for depth */
+                inset 0 -4px 8px rgba(255, 0, 0, 0.5); /* Red glow at the bottom */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.9), /* Stronger inner shadow */
+                inset 0 -6px 12px rgba(255, 0, 0, 0.7); /* Enhanced red glow */
+    transform: scale(1.02); /* Slight zoom effect */
+    outline: none; /* Remove default outline */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+.contact-form button {
+    padding: 15px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b); /* Gradient button */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.8); /* Red shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px); /* Hover lift effect */
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 1); /* Stronger shadow on hover */
+}
+.contact-section {
+    padding: 20px; /* Reduced padding */
+    max-width: 600px; /* Reduced maximum width */
+    margin: 50px auto; /* Reduced top and bottom margin */
+    background: linear-gradient(135deg, #111, #222); /* Gradient for depth */
+    border-radius: 10px; /* Slightly smaller border radius */
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5); /* Adjusted shadow for smaller size */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for 3D effect */
+}
+
+.contact-section h1 {
+    font-size: 2rem; /* Reduced font size for heading */
+    color: #e74c3c;
+    text-shadow: 0 3px 6px rgba(255, 0, 0, 0.8); /* Adjusted shadow for smaller text */
+    margin-bottom: 15px; /* Reduced bottom margin */
+}
+
+.contact-section p {
+    font-size: 1rem; /* Reduced font size for paragraphs */
+    color: #ddd; /* Light gray for softer contrast */
+    margin-bottom: 15px; /* Reduced bottom margin */
+}
+
+.phone-numbers li {
+    font-size: 1.2rem; /* Reduced font size for phone numbers */
+    margin: 8px 0; /* Reduced vertical margin */
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for readability */
+}
+.contact-form button {
+    background: radial-gradient(circle, #e74c3c, #c0392b);
+    border: 2px solid #e74d3c00; /* Red border for contrast */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Comfortaa', cursive;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form button::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    transition: top 0.5s;
+}
+
+.contact-form button:hover::before {
+    top: 100%;
+}
+/* Обгортка для центрування */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* якщо navbar ~80px */
+    padding: 2vh 0;
+}
+
+.contact-section {
+    width: 90%;
+    max-width: 800px;
+    height: 95%;
+    padding: 2vh 4vw;
+    background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(0.8rem, 1.5vw, 1rem); /* зменшено */
+    border-radius: 1rem;
+    box-shadow: 0 0 18px rgba(255, 0, 70, 0.3);
+    overflow: auto;
+    transition: all 0.3s ease;
+    margin-top: 200px;
+    overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      overflow-y: hidden;
+      padding-bottom: 5px;
+}
+.contact-section::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+
+.contact-section h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 0 0 10px #ff004c;
+}
+
+.contact-section p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+body {
+    margin: 0;
+    overflow-y: auto; /* дозволяє скрол, якщо контент великий, але не завжди показує смугу */
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0d0d0d;
+}
+.contact-section h1 {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* менше */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Текст */
+.contact-section p {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Мітки */
+.contact-section label {
+    font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+}
+
+/* Поля введення */
+.contact-section input,
+.contact-section textarea {
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    padding: 0.6rem;
+}
+
+/* Кнопка */
+.contact-section button {
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    padding: 0.7rem 1.5rem;
+    margin-bottom: 20px;
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .contact-section {
+        width: 95%; /* Adjust width for smaller screens */
+        padding: 2vh 3vw; /* Adjust padding */
+        margin: 20px auto; /* Center the section */
+    }
+
+    .contact-section h1 {
+        font-size: clamp(1.2rem, 4vw, 1.8rem); /* Smaller font size */
+    }
+
+    .contact-section p {
+        font-size: clamp(0.9rem, 3vw, 1.2rem); /* Smaller font size */
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+        max-width: 100%; /* Full width for inputs */
+    }
+
+    .contact-section button {
+        font-size: clamp(0.9rem, 3vw, 1.2rem); /* Smaller font size */
+        padding: 0.6rem 1.2rem; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        width: 100%; /* Full width for very small screens */
+        padding: 2vh 2vw; /* Adjust padding */
+    }
+
+    .contact-section h1 {
+        font-size: clamp(1rem, 5vw, 1.5rem); /* Smaller font size */
+    }
+
+    .contact-section p {
+        font-size: clamp(0.8rem, 4vw, 1rem); /* Smaller font size */
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+        font-size: clamp(0.8rem, 3vw, 1rem); /* Smaller font size */
+    }
+
+    .contact-section button {
+        font-size: clamp(0.8rem, 3vw, 1rem); /* Smaller font size */
+        padding: 0.5rem 1rem; /* Adjust padding */
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact-section {
+        max-width: 1200px; /* Adjust width for large screens */
+        padding: 3vh 5vw; /* Adjust padding */
+    }
+
+    .contact-section h1 {
+        font-size: clamp(2rem, 4vw, 3rem); /* Larger font size */
+    }
+
+    .contact-section p {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Larger font size */
+    }
+
+    .contact-section button {
+        font-size: clamp(1.2rem, 2vw, 1.8rem); /* Larger font size */
+        padding: 1rem 2rem; /* Adjust padding */
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact-section {
+        width: 90%; /* Adjust width for medium screens */
+        max-width: 900px; /* Limit maximum width */
+        padding: 2vh 3vw; /* Adjust padding */
+        margin: 20px auto; /* Center the section */
+    }
+
+    .contact-section h1 {
+        font-size: clamp(1.5rem, 3vw, 2rem); /* Adjust font size for heading */
+    }
+
+    .contact-section p {
+        font-size: clamp(1rem, 2.5vw, 1.25rem); /* Adjust font size for paragraphs */
+        margin-bottom: 1rem; /* Reduce margin */
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+        font-size: clamp(0.9rem, 2vw, 1.1rem); /* Adjust font size for inputs */
+        max-width: 100%; /* Full width for inputs */
+        padding: 0.6rem; /* Adjust padding */
+    }
+
+    .contact-section button {
+        font-size: clamp(1rem, 2vw, 1.2rem); /* Adjust font size for button */
+        padding: 0.7rem 1.5rem; /* Adjust padding */
+    }
+}
+.contact-section textarea {
+    font-size: clamp(0.8rem, 1.4vw, 1rem);
+    padding: 0.6rem;
+    resize: none; /* Disable resizing */
+    border: 1px solid #e74c3c;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.8), /* Inner shadow for depth */
+                inset 0 -4px 8px rgba(255, 0, 0, 0.5); /* Red glow at the bottom */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
+
+/* Apply Comfortaa font to specific elements */
+.contact-section h1,
+.contact-section p,
+.contact-section label {
+    font-family: 'Comfortaa', sans-serif; /* Use Comfortaa font */
+}
+
+/* Ensure no element overlaps the navbar */
+body {
+    margin: 0;
+    padding-top: 80px; /* Add padding equal to the navbar height */
+    padding-bottom: 20px; /* Add spacing at the bottom */
+    box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #0d0d0d;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Ensure content fits within the viewport */
+    padding: 2vh 2vw; /* Add spacing around the content */
+}
+
+.contact-section {
+    width: 90%; /* Responsive width */
+    max-width: 800px; /* Limit maximum width */
+    height: auto; /* Allow content to adjust dynamically */
+    padding: 2vh 4vw; /* Responsive padding */
+    background: linear-gradient(to right, #0f0f0f, #1a1a1a); /* Gradient background */
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 0 18px rgba(255, 0, 70, 0.3); /* Subtle shadow */
+    overflow: hidden; /* Prevent scrollbars */
+    transition: all 0.3s ease;
+    margin: 20px auto; /* Add spacing from the edges */
+}
+
+/* Prevent elements from going below the end of the page */
+.contact-section {
+    margin-bottom: 20px; /* Add spacing at the bottom */
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #111;
+    color: #fff;
+}
+
+
+
+/* Забезпечення, щоб contact-section не торкалася низу сторінки */
+.contact-section {
+    margin: 20px auto; /* Центрування секції */
+    padding: 20px;
+    max-width: calc(100% - 40px); /* Відступи зліва і справа */
+    max-height: calc(100vh - 140px); /* Відступи зверху і знизу (враховуючи navbar і нижній відступ) */
+    overflow: auto; /* Дозволити прокрутку, якщо контент перевищує висоту */
+    box-sizing: border-box;
+    background: linear-gradient(to right, #0f0f0f, #1a1a1a); /* Градієнтний фон */
+    border-radius: 10px; /* Закруглені кути */
+    box-shadow: 0 0 18px rgba(255, 0, 70, 0.3); /* Тінь */
+    transition: all 0.3s ease;
+    margin-bottom: 60px; /* Мінімальний відступ від кінця сторінки */
+}
+
+/* Забезпечення, щоб contact-section не залазила під navbar */
+.contact-wrapper {
+    padding-top: 80px; /* Висота navbar */
+    padding-left: 20px; /* Відступ від лівого краю */
+    padding-right: 20px; /* Відступ від правого краю */
+    padding-bottom: 60px; /* Мінімальний відступ від кінця сторінки */
+    box-sizing: border-box;
+}
+
+/* Додаткове правило для адаптивності */
+@media (max-width: 768px) {
+    .contact-section {
+        max-width: calc(100% - 20px); /* Зменшення ширини для менших екранів */
+        max-height: calc(100vh - 100px); /* Зменшення висоти для менших екранів */
+        margin-top: 40px;
+    }
+.navbar{margin-bottom: 40px;}
+}
+
+body {
+    padding-bottom: 10px;
+    
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ua-uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="contakts.css">
+    <link rel="icon" href="lolo.png" type="image/x-icon"> <!-- Favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar">
+        <img src="lolo.jpeg" alt="Logo" class="logo">
+        <div class="team-name" id="team-name">BERICH TEAM</div>
+        <div class="nav-links">
+            <a href="main.html">Головна</a>
+            <a href="about we.html">Про нас</a>
+            <a href="plans.html">Послуги</a>
+            <a href="contakts.html">Контакти</a>
+        </div>
+    </div>
+   <div class="contact-wrapper"> <div class="contact-section" id="contact">
+        <h1>Контакти</h1>
+        <p>Зв'яжіться з нами за телефонами:</p>
+        <ul class="phone-numbers">
+            <li>+380 (50) 123-45-67</li>
+            <li>+380 (67) 890-12-34</li>
+            <li>+380 (93) 456-78-90</li>
+        </ul>
+        <p>Або заповніть форму нижче:</p>
+        <form method="POST" class="contact-form">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Електронна пошта:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" maxlength="13" required>
+
+            <label for="message">Повідомлення:</label>
+            <textarea id="message" name="message" rows="4" maxlength="200" required></textarea>
+
+            <button type="submit">Надіслати</button>
+        </form>
+    </div></div>
+
+
+
+
+    <script src="contakts.js"></script>
+</body>
+</html>

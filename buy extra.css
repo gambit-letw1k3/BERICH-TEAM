@@ -1,0 +1,1154 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: #121212;
+    color: white;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: black;
+    filter: none !important;
+    transition: background-color 0.5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar .team-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.team-name {
+    text-decoration: none;
+}
+
+.navbar .team-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease, transform-origin 0s 0.3s;
+}
+
+.navbar .team-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar .team-name:not(:hover)::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease, transform-origin 0s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Oswald', sans-serif;
+    transition: background-color 1.5s ease, border-radius 0.5s ease;
+}
+
+.navbar .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar .team-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar .nav-links {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.navbar .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 10px 0;
+}
+
+.navbar .nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::before {
+    transform: translateY(-100%);
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::after {
+    transform: translateY(100%);
+}
+
+.nav-links.active {
+    padding: 0;
+}
+
+.purchase-section {
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+}
+
+.purchase-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 900px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    
+}
+
+.payment-methods,
+.order-summary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.payment-methods h2,
+.order-summary h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.method {
+
+    margin-bottom: 20px;
+}
+
+.method label {
+    font-size: 1rem;
+    color: white;
+    margin-left: 10px;
+}
+
+.card-info label {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.card-info input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: white;
+}
+.card-info{margin-right: 10px;}
+.order-summary {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.summary-item,
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+.summary-total {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.confirm-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c70000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+    background-color: #ff3333;
+}
+
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nav-links.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.fake-paypal-button {
+    background-color: #ffc439;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.fake-paypal-button:hover {
+    background-color: #ffb347;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.paypal-input-group {
+    position: relative;
+    margin-bottom: -10px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.paypal-input-group input {
+    width: 100%;
+    height: 56px;
+    padding: 18px 12px 0 12px;
+    font-size: 1rem;
+    border: 1px solid #cbd2d6;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #1c1e21;
+    transition: all 0.2s ease-in-out;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.paypal-input-group input:focus {
+    border-color: #0070ba;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 112, 186, 0.15);
+}
+
+.paypal-input-group label {
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    font-size: 1rem;
+    color: #6c7378;
+    pointer-events: none;
+    background-color: #fff;
+    padding: 0 4px;
+    transition: 0.2s ease all;
+    line-height: 1;
+}
+
+.paypal-input-group input:focus+label,
+.paypal-input-group input:valid+label {
+    top: 6px;
+    font-size: 0.75rem;
+    color: #0070ba;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#paypal-login-button {
+    background-color: #ffc439;
+    color: #111;
+}
+
+#paypal-cancel-button {
+    background-color: #ccc;
+    color: #111;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    height: 525px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.paypal-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.modal-content p {
+    font-size: 1.0625rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #50575e;
+    line-height: 1.5;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #cbd2d6;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #1c1e21;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: #0070ba;
+    box-shadow: 0 0 0 3px rgba(0, 112, 186, 0.15);
+}
+
+.modal-content input::placeholder {
+    color: #6c7378;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 1;
+}
+
+.forgot-email {
+    display: block;
+    font-size: 0.9rem;
+    color: #044ebe;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.forgot-email:hover {
+    text-decoration: none;
+    color: #96bbff;
+}
+
+#paypal-next-button {
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#paypal-next-button:hover {
+    background-color: #005ea6;
+}
+
+.divider {
+    margin: 15px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#paypal-create-account-button {
+    background-color: white;
+    color: #003087;
+    border: 2px solid #003087;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+#paypal-create-account-button:hover {
+    background-color: #003087;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.cancel-button:hover {
+    background-color: #bbb;
+}
+
+.paypal-button {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paypal-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.paypal-button {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paypal-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.preloader-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    height: 525px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-circle-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #0070ba;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+.preloader-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+.paypal-logo {
+    width: 30px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    font-weight: 400;
+    line-height: 32px;
+    font-family: "pp-open-regular", Helvetica Neue, Arial, sans-serif;
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 490;
+    font-family: Arial, sans-serif;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.forgot-email {
+    display: block;
+    font-size: 0.9rem;
+    color: #044ebe;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-weight: 10000;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.forgot-email:hover {
+    text-decoration: none;
+    color: #96bbff;
+}
+
+#paypal-next-button {
+    background-color: #044ebe;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#paypal-next-button:hover {
+    background-color: #368ee7;
+}
+
+.divider {
+    margin: 15px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#paypal-create-account-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+#paypal-create-account-button:hover {
+    background-color: white;
+    color: #0070ba;
+    border-color: #0070ba;
+}
+
+#paypal-close-button:hover {
+    background-color: white;
+    color: #c93535;
+    border-color: #c93535;
+}
+
+#paypal-close-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pipisya {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.error-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.error-content h2 {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.error-content p {
+    color: #444;
+}
+
+.card-info {
+    background-color: #414141;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.card-input-group {
+    margin-bottom: 15px;
+}
+
+.card-input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #d5d5d5;
+    margin-bottom: 5px;
+}
+
+.card-input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.card-input-group input:focus {
+    border-color: #0070ba;
+    outline: none;
+}
+
+.card-input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.card-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: #000000;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card-icon:hover {
+    transform: scale(1.2);
+    color: #5c5c5c;
+}
+
+@media (max-width: 768px) {
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content p {
+        font-size: 0.9rem;
+    }
+
+    .confirm-button,
+    .paypal-button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .purchase-section {
+        margin-top: 50px;
+        padding: 10px;
+    }
+
+    .payment-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-info {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    body,
+    html {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .paypal-button {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .order-summary {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #2a2a2a;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-summary h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .summary-item,
+    .summary-total {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .summary-total {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .confirm-button {
+        width: 90%;
+        margin: 10px auto;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    p {
+        color: white;
+    }
+}
+
+@media (max-width: 768px) {
+    .paypal-button {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        font-size: 1.2rem;
+        margin-top: 5px;
+        border-radius: 12px;
+        color: #111;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .paypal-button:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-info {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #2a2a2a;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .card-input-group label {
+        font-size: 1rem;
+        color: white;
+        margin-bottom: 5px;
+    }
+
+    .card-input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #414141;
+        color: white;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .card-input-group input:focus {
+        border-color: #0070ba;
+        outline: none;
+    }
+
+    .card-input-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-info {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #2a2a2a;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-info h2 {
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .card-input-group {
+        margin-bottom: 20px;
+    }
+
+    .card-input-group label {
+        display: block;
+        font-size: 1rem;
+        color: #d5d5d5;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .card-input-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #555;
+        border-radius: 8px;
+        background-color: #333;
+        color: white;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-input-group input:focus {
+        border-color: #0070ba;
+        box-shadow: 0 0 5px rgba(0, 112, 186, 0.5);
+        outline: none;
+    }
+
+    .card-input-row {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        color: #000000;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .card-icon:hover {
+        transform: scale(1.2);
+        color: #5c5c5c;
+    }
+}

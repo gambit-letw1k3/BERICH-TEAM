@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ua-uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lite Plan Purchase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="buy lite.css">
+    <link rel="icon" href="lolo.png" type="image/x-icon"> <!-- Favicon -->
+</head>
+<body>
+    <div class="navbar">
+        <img src="lolo.jpeg" alt="Logo" class="logo">
+        <div class="team-name" id="team-name">BERICH TEAM</div>
+        <div class="nav-links">
+            <a href="main.html">Головна</a>
+            <a href="about we.html">Про нас</a>
+            <a href="plans.html">Послуги</a>
+            <a href="contakts.html">Контакти</a>
+        </div>
+    </div>
+
+    <div class="purchase-section">
+        <h1>Оформлення покупки</h1>
+        <div class="payment-container">
+            <div class="payment-methods">
+                <h2>Способи оплати</h2>
+                <div class="method">
+                    <input type="radio" id="credit-card" name="payment-method">
+                    <label for="credit-card">Кредитні / дебетові карти</label>
+                    <div class="card-info" style="display: none;">
+                        <div class="card-input-group">
+                            <label for="card-number">Номер карти*</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+                        </div>
+                        <div class="card-input-group">
+                            <label for="card-name">Ім'я на карті*</label>
+                            <input type="text" id="card-name" placeholder="Ваше ім'я" required>
+                        </div>
+                        <div class="card-input-row">
+                            <div class="card-input-group">
+                                <label for="card-expiry">Термін дії*</label>
+                                <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="card-input-group">
+                                <label for="card-cvv">CVV*</label>
+                                <input type="password" id="card-cvv" placeholder="XXX" maxlength="4" required>
+                            </div>
+                        </div>
+                        <div class="card-icons">
+                            <i class="fab fa-cc-visa card-icon"></i>
+                            <i class="fab fa-cc-mastercard card-icon"></i>
+                            <i class="fab fa-cc-amex card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="method">
+                    <input type="radio" id="paypal" name="payment-method">
+                    <label for="paypal">PayPal</label>
+                    <div id="paypal-button-container" style="display: none;">
+                        <img src="CITYPNG.png" alt="PayPal Button" class="paypal-button">
+                    </div>
+                </div>
+                
+       
+                <div id="paypal-preloader" class="preloader" style="display: none;">
+                    <div class="preloader-content">
+                        <div class="progress-circle-wrapper">
+                            <div class="progress-circle"></div>
+                            <img src="ChatGPT Image.png" alt="Lock Icon" class="preloader-logo">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="paypal-modal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <img src="ppall.png" alt="PayPal Logo" class="paypal-logo">
+                        <h2>Pay with PayPal</h2>
+                        <p>Enter your email address to get started.</p>
+                        <div class="paypal-input-group">
+                            <input type="email" id="paypal-email" required>
+                            <label for="paypal-email">Email or mobile number</label>
+                          </div>
+                        <a href="#" class="forgot-email">Forgot email?</a>
+                        <button id="paypal-next-button">Next</button>
+                        <div class="divider"><span class="pipisya"></span>or <span class="pipisya"></span></div>
+                        <button id="paypal-create-account-button">Create an Account</button>
+                        <button id="paypal-close-button">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div class="order-summary">
+                <h2>Опис замовлення</h2>
+                <div class="summary-item">
+                    <span>Lite Plan 120$</span>
+                    
+                </div>
+                <div class="summary-total">
+                    <span>Всього:</span>
+                    <span>120$</span>
+                </div>
+                <a href="lite.html"><button class="confirm-button">Оформити замовлення</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="buy lite.js"></script>
+</body>
+</html>

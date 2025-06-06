@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ua-uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="lolo.png" type="image/x-icon"> <!-- Favicon -->
+</head>
+<body>
+    <div class="intro">
+        <video autoplay muted loop>
+            <source src="13c10626e029dc4e210ff804d181454d.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="intro-content">
+            <h1>BERICH TEAM - твій ключ до успіху</h1>
+            <button onclick="showMainPage()">Читати більше</button>
+        </div>
+    </div>
+
+    <div class="main-page">
+        <div class="navbar">
+            <img src="lolo.jpeg" alt="Logo" class="logo">
+            <div class="team-name" id="team-name">BERICH TEAM</div>
+            <div class="nav-links">
+                <a href="main.html">Головна</a>
+                <a href="about we.html">Про нас</a>
+                <a href="plans.html">Послуги</a>
+                <a href="contakts.html">Контакти</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="card" onclick="showInfo('Гнучкий графік. Працюй в будь які дні і будь який час!')">Вільний графік</div>
+            <div class="card" onclick="showInfo('Заробляй від 4000$!')">Великі гроші</div>
+            <div class="card" onclick="showInfo('4000$ вже в перший місяць. Далі більше!')">Швидкий успіх</div>
+        </div>
+        
+     
+        <div id="info-bar" class="info-bar">
+            <p id="info-text"></p>
+        </div>
+        <div class="luxury-area" id="luxury-area" data-aos="fade-right">
+            <div class="luxury-content">
+                <h2>BERICH TEAM</h2>
+                <p>Ти зможеш працювати дистанційно при чому твій дохід на старті буде близько 4000$. Невже не цього ти хочеш?</p>
+            </div>
+        </div>
+
+        <div class="cta-area" id="cta-area" data-aos="fade-left">
+            <h2>Приєднуйся до нас вже сьогодні!</h2>
+           <a href="plans.html"> <button class="cta-button">Дізнатися більше</button></a>
+        </div>
+    </div>
+
+    
+    <button id="back-to-top"></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> 
+    <script src="main.js"></script>
+    <script>
+        AOS.init({
+            once: true, 
+            offset: 120, 
+        });
+    
+        
+        if (!window.backToTopButton) {
+            const backToTopButton = document.getElementById('back-to-top');
+    
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+    
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+    
+
+            window.backToTopButton = backToTopButton;
+        }
+    </script>
+</body>
+</html>

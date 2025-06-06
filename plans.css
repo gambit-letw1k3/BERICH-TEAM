@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.content-area {
+    width: 100%;
+    height: 100vh;
+    background: url('file_00000000b1ec61f78959490b21857e96 (1).png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    transition: filter 0.5s ease;
+}
+
+.content-area.blurred {
+    filter: blur(5px);
+}
+
+.card {
+    width: 30%;
+    height: 150px;
+    background-color: rgba(199, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column; /* Елементи розташовані вертикально */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавна анімація */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Початковий тінь */
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Збільшення картки */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Збільшення тіні */
+    background-color: rgba(255, 0, 0, 0.9); /* Зміна кольору фону */
+}
+
+.card h3 {
+    margin-bottom: 10px; /* Відступ між заголовком і текстом */
+    transition: color 0.3s ease; /* Плавна зміна кольору тексту */
+}
+
+
+
+
+.card p {
+    transition: color 0.3s ease; /* Плавна зміна кольору тексту */
+}
+
+
+
+.card.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    background-color: rgba(199, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto; /* Увімкнення взаємодії */
+    cursor: default;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay.active {
+    display: flex;
+    pointer-events: auto;
+}
+
+.card.expanded .card-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.card.expanded .card-button {
+    display: block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px; /* Додано відступ зверху */
+}
+
+.card.expanded .card-button:hover {
+    background-color: rgba(50, 50, 50, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+
+.navbar .team-name {
+    font-family: 'Unbounded', sans-serif; /* Шрифт Unbounded */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: auto; /* Вирівнюємо текст праворуч */
+    text-transform: uppercase; /* Робимо текст великими літерами */
+    letter-spacing: 2px; /* Додаємо розрядку між літерами */
+    position: relative; /* Для псевдоелемента */
+    cursor: pointer; /* Вказівник при наведенні */
+}
+
+.navbar .team-name a {
+    all: unset; /* Скидаємо всі стилі посилання */
+    cursor: pointer; /* Залишаємо курсор */
+}
+
+.navbar .team-name:hover {
+    color: white; /* Зберігаємо білий колір при наведенні */
+}
+.navbar .team-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left; /* Початково зліва */
+    transition: transform 0.3s ease, transform-origin 0s 0.3s; /* Почекаємо, поки закінчиться анімація */
+}
+
+.navbar .team-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar .team-name:not(:hover)::after {
+    transform: scaleX(0);
+    transform-origin: right; /* Зникає справа наліво */
+    transition: transform 0.3s ease, transform-origin 0s; /* Одразу змінюємо origin */
+}
+
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Oswald', sans-serif;
+    transition: background-color 1.5s ease, border-radius 0.5s ease;
+}
+
+.navbar .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1); /* Ефект збільшення при наведенні */
+}
+
+.navbar .team-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar .nav-links {
+    display: block; /* Відображаємо меню */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0; /* Початково без відступів */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0; /* Початково невидиме */
+    transform: translateY(-20px); /* Початково трохи вище */
+    pointer-events: none; /* Вимикаємо взаємодію */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавна анімація */
+}
+
+.navbar .nav-links.active {
+    opacity: 1; /* Робимо видимим */
+    transform: translateY(0); /* Повертаємо на місце */
+    pointer-events: auto; /* Увімкнення взаємодії */
+    padding: 10px 0; /* Додаємо відступи */
+}
+
+.navbar .nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9); /* Колір при наведенні */
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::before {
+    transform: translateY(-100%); /* Піднімаємо колір знизу вгору */
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9); /* Початковий колір */
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::after {
+    transform: translateY(100%); /* Опускаємо колір зверху вниз */
+}
+.nav-links.active{padding: 0;}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.overlay.active {
+    display: flex;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    
+
+.navbar .team-name {
+    font-family: 'Unbounded', sans-serif; /* Шрифт Unbounded */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: auto; /* Вирівнюємо текст праворуч */
+    text-transform: uppercase; /* Робимо текст великими літерами */
+    letter-spacing: 2px; /* Додаємо розрядку між літерами */
+    position: relative; /* Для псевдоелемента */
+    cursor: pointer; /* Вказівник при наведенні */
+    overflow: hidden; /* Ховаємо вихід за межі */
+}
+
+.navbar .team-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left; /* Початково зліва */
+    transition: transform 0.3s ease, transform-origin 0s 0.3s; /* Почекаємо, поки закінчиться анімація */
+}
+
+.navbar .team-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar .team-name:not(:hover)::after {
+    transform: scaleX(0);
+    transform-origin: right; /* Зникає справа наліво */
+    transition: transform 0.3s ease, transform-origin 0s; /* Одразу змінюємо origin */
+}
+
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Oswald', sans-serif;
+    transition: background-color 1.5s ease, border-radius 0.5s ease;
+}
+
+.navbar .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1); /* Ефект збільшення при наведенні */
+}
+
+.navbar .team-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar .nav-links {
+    display: block; /* Відображаємо меню */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0; /* Початково без відступів */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0; /* Початково невидиме */
+    transform: translateY(-20px); /* Початково трохи вище */
+    pointer-events: none; /* Вимикаємо взаємодію */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Плавна анімація */
+}
+
+.navbar .nav-links.active {
+    opacity: 1; /* Робимо видимим */
+    transform: translateY(0); /* Повертаємо на місце */
+    pointer-events: auto; /* Увімкнення взаємодії */
+    padding: 10px 0; /* Додаємо відступи */
+}
+
+.navbar .nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9); /* Колір при наведенні */
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::before {
+    transform: translateY(-100%); /* Піднімаємо колір знизу вгору */
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9); /* Початковий колір */
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::after {
+    transform: translateY(100%); /* Опускаємо колір зверху вниз */
+}
+.nav-links.active{padding: 0;}
+.card {
+    height: 200px; /* Збільшуємо висоту карток */
+}
+}
+
+body {
+    
+    box-sizing: border-box; /* Враховуємо padding у розмірах елементів */
+}
+
+ .card, .overlay {
+    max-width: calc(100% - 40px); /* Зменшуємо ширину, щоб врахувати бокові відступи */
+    max-height: calc(100vh - 90px); /* Зменшуємо висоту, щоб врахувати navbar і нижній відступ */
+  
+}
+
+.overlay.active {
+    display: flex;
+    pointer-events: none; /* Вимикаємо взаємодію */
+    max-width: 1px; max-height: 1px; /* Зменшуємо розміри для анімації */
+    transition: opacity 0.3s ease; /* Додаємо плавний перехід */
+}

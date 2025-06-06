@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black; /* Black background for cinematic effect */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Oswald', sans-serif;
+    transition: background-color 1.5s ease, border-radius 0.5s ease;
+}
+
+.navbar .logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform: scale(1.1); /* Hover effect */
+}
+
+.navbar .team-name {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.navbar .team-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease, transform-origin 0s 0.3s;
+}
+
+.navbar .team-name:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar .team-name:not(:hover)::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease, transform-origin 0s;
+}
+
+.navbar .nav-links {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.navbar .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 10px 0;
+}
+
+.navbar .nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::before {
+    transform: translateY(-100%);
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(199, 0, 0, 0.9);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+.navbar .nav-links a:hover::after {
+    transform: translateY(100%);
+}
+
+/* Credits container */
+.credits-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.credits {
+    position: absolute;
+    top: 100%; /* Start below the viewport */
+    text-align: center;
+    animation: scrollCredits 10s linear forwards; /* Scroll up */
+    opacity: 1; /* Ensure credits are visible */
+    z-index: 1001; /* Ensure credits are above other elements */
+}
+
+@keyframes scrollCredits {
+    0% {
+        top: 100%; /* Start below the viewport */
+    }
+    100% {
+        top: -100%; /* Scroll completely out of the viewport */
+    }
+}
+
+h1, h2 {
+    margin: 20px 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Final message styles */
+.final-message {
+    display: none; /* Initially hidden */
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0; /* Start fully transparent */
+}
+
+.final-message h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    color: #ffcc00;
+    text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+body, h1, h2, p {
+    color: white; /* Щоб текст був видимим на чорному фоні */
+}
+
+.final-message {
+    display: none; /* Initially hidden */
+    text-align: center;
+    position: relative;
+    top: -50px; /* Adjust position to move higher */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 2s ease-in-out; /* Smooth fade-in effect */
+}
+
+.final-message h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    color: #ffcc00; /* Gold color */
+    text-transform: uppercase;
+    opacity: 0; /* Start fully transparent */
+    animation: fadeIn 2s ease-in-out forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.credits, .final-message {
+    color: white;
+}
